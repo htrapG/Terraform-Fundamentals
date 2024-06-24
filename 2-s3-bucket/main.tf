@@ -1,5 +1,5 @@
 locals {
-  bucket_name   = "super-unique-terraform-bucket"
+  bucket_name   = "htrap-unique-bucket"
   s3_bucket_arn = "arn:aws:s3:::${local.bucket_name}"
 }
 
@@ -62,6 +62,12 @@ resource "aws_iam_role_policy_attachment" "s3_write_policy_attachment" {
 resource "aws_instance" "example_instance" {
   ami           = var.ami_id 
   instance_type = var.instance_type
+  associate_public_ip_address = true
+  vpc_security_group_ids = ["sg-03ebfed1807cbb489"]
+  subnet_id = "subnet-02d876e2f58435170"
+  tags = {
+        Name = "example_instance"
+  }
 
   # Associate the IAM role with the instance
   iam_instance_profile = aws_iam_instance_profile.example_instance_profile.name
@@ -72,4 +78,9 @@ resource "aws_instance" "example_instance" {
     echo "Hello, World!" > /tmp/example.txt
     aws s3 cp /tmp/example.txt s3://${local.bucket_name}/
   EOF
+}
+
+output "instance_public_ip" {
+  description = "The public IP address of the EC2 instance"
+  value       = aws_instance.example_instance.public_ip
 }
