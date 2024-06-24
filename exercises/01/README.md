@@ -26,7 +26,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = "us-west-2"
 }
 
 # declare a resource stanza so we can create something, in this case a key pair
