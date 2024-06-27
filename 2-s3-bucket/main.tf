@@ -1,5 +1,5 @@
 locals {
-  bucket_name   = "htrap-unique-bucket"
+  bucket_name   = "studentname-unique-bucket"
   s3_bucket_arn = "arn:aws:s3:::${local.bucket_name}"
 }
 
