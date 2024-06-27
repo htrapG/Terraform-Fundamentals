@@ -35,7 +35,7 @@ variable "student_alias" {
 terraform init
 ```
 
-The init should have picked up on the fact that we had a reference to Azure resources in our HCL. Namely, that we defined the azurerm provider in the `providers.tf` file
+The init should have picked up on the fact that we had a reference to AWS resources in our HCL. Namely, that we defined the aws provider in the `providers.tf` file
 
 ```hcl
 terraform {
