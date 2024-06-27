@@ -25,7 +25,10 @@ resource "aws_instance" "example_instance" {
     subnet_id                   = "subnet-02d876e2f58435170"
     availability_zone           = "us-west-2b"  # Use the first available AZ
 
-#    tags = local.common_tags
+    tags = {
+        Name = "example_instance"
+    }
+
 }
 
 # Output the instance's public IP address
