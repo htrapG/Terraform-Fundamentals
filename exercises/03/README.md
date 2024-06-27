@@ -11,8 +11,7 @@ This lab is for you to exercise querying the state with data sources in order to
 * Create a `aws_instance` considering:
 
    * It uses locals to compute random namings for resources that need to have globally unique names
-   * It sets common tags to resources via a locals as well
-   * Fetches via a data source the `ami` and the `AZ zone`
+   * Fetches via a data source the `ami` 
    
 1. Create the `main.tf` configuration to create the ec2-instance
    
